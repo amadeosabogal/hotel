@@ -115,6 +115,7 @@ function App() {
           <p>Sumérgete en un oasis de tranquilidad diseñado exclusivamente para ti. Descubre tu refugio perfecto.</p>
         </motion.div>
 
+
         <motion.div
           className="booking-container"
           initial={{ opacity: 0, x: "-50%", y: 50 }}
