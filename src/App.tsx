@@ -118,8 +118,8 @@ function App() {
 
         <motion.div
           className="booking-container"
-          initial={{ opacity: 0, x: "-50%", y: 50 }}
-          animate={{ opacity: 1, x: "-50%", y: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
         >
           <div className="booking-bar">

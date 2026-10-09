@@ -184,8 +184,9 @@
 .booking-container {
   position: absolute;
   bottom: 80px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   z-index: 20;
   width: calc(100% - 80px);
   max-width: 1600px;
@@ -649,19 +650,60 @@
   }
   .navbar {
     top: 0;
-    padding: 20px;
+    padding: 15px;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+  }
+  .nav-menu-btn {
+    justify-self: start;
+  }
+  .nav-actions {
+    justify-self: end;
+  }
+  .logo h1 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+  .logo span {
+    letter-spacing: 4px;
   }
   .nav-links {
     display: none;
   }
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 40px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+  }
+  .hero-content {
+    margin-bottom: 10px;
+  }
   .hero-content h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+  .hero-content p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+  .booking-container {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
   }
   .booking-bar {
     flex-direction: column;
   }
   .booking-bar h3 {
-    padding: 20px;
+    padding: 15px;
     border-right: none;
     border-bottom: 1px solid rgba(255,255,255,0.2);
     width: 100%;
@@ -669,25 +711,48 @@
   }
   .booking-fields {
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     width: 100%;
+    padding: 15px 0;
   }
   .btn-check {
-    width: calc(100% - 40px);
-    margin: 0 20px 20px;
-  }
-  .booking-container {
-    bottom: 20px;
+    width: calc(100% - 30px);
+    margin: 0 15px 15px;
   }
   .room-grid {
     grid-template-columns: 1fr;
+    padding: 0 15px;
+  }
+  .room-card {
+    height: 320px;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .testimonial {
+    padding: 80px 20px;
+  }
+  .testimonial-content h2 {
+    font-size: 1.5rem;
+  }
+  .ig-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer {
+    padding: 60px 20px 30px;
   }
   .footer-content {
     flex-direction: column;
     gap: 40px;
     text-align: center;
+    padding-bottom: 30px;
   }
   .footer-col.right {
     text-align: center;
+  }
+  /* Adjusting the reserve button on mobile to fit better */
+  .btn-primary {
+    padding: 8px 16px;
+    font-size: 0.75rem;
   }
 }
