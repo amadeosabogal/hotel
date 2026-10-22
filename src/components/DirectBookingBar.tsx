@@ -100,7 +100,7 @@ export const DirectBookingBar: React.FC<DirectBookingBarProps> = ({ lang }) => {
             </label>
             <input 
               type="date" 
-              className="engine-input" 
+              className="engine-input engine-date-input" 
               value={checkIn}
               min={formatDate(today)}
               onChange={(e) => setCheckIn(e.target.value)}
@@ -115,7 +115,7 @@ export const DirectBookingBar: React.FC<DirectBookingBarProps> = ({ lang }) => {
             </label>
             <input 
               type="date" 
-              className="engine-input" 
+              className="engine-input engine-date-input" 
               value={checkOut}
               min={checkIn}
               onChange={(e) => setCheckOut(e.target.value)}
