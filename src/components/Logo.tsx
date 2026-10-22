@@ -100,6 +100,7 @@ export const Logo: React.FC<LogoProps> = ({ variant = 'dark', className = '', si
           COUNTRY RESORT
         </span>
         <span 
+          className="logo-retreat-tag"
           style={{ 
             fontFamily: "'Montserrat', sans-serif", 
             fontSize: '0.48rem', 

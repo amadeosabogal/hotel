@@ -190,6 +190,8 @@
   left: 0;
   width: 100%;
   height: 100vh;
+  height: 100dvh;
+  box-sizing: border-box;
   background-color: #ffffff;
   z-index: 1100;
   flex-direction: column;
@@ -460,6 +462,8 @@
 .hero-dots {
   position: absolute;
   bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 8px;
   z-index: 20;
@@ -487,6 +491,8 @@
   z-index: 50;
   margin-top: -45px;
   padding: 0 24px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .direct-booking-container {
@@ -497,6 +503,8 @@
   padding: 26px 32px 22px;
   box-shadow: 0 16px 45px rgba(28, 36, 20, 0.16);
   border: 1px solid #e7ebe0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .direct-pitch-header {
@@ -558,12 +566,17 @@
   grid-template-columns: 1.1fr 1.1fr 1.4fr 1.2fr;
   gap: 16px;
   margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .engine-field-box {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .engine-label {
@@ -579,6 +592,10 @@
 
 .engine-input,
 .engine-select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   padding: 11px 12px;
   border: 1px solid #c9d2bf;
   border-radius: 6px;
@@ -590,6 +607,12 @@
   transition: all 0.25s ease;
 }
 
+.engine-select {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .engine-input:focus,
 .engine-select:focus {
   border-color: var(--primary-green);
@@ -599,10 +622,13 @@
 .guest-mini-counter {
   display: flex;
   gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .mini-guest-control {
   flex: 1;
+  min-width: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -612,6 +638,7 @@
   background-color: #fbfdf9;
   font-size: 0.84rem;
   font-weight: 600;
+  box-sizing: border-box;
 }
 
 .btn-counter-group {
@@ -640,6 +667,8 @@
   margin-bottom: 16px;
   flex-wrap: wrap;
   gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .calc-price-row {
@@ -1386,6 +1415,13 @@
 .map-iframe-wrapper {
   position: relative;
   min-height: 360px;
+  width: 100%;
+}
+
+.map-iframe-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .map-card-info-pane {
@@ -2493,119 +2529,341 @@
 }
 
 @media (max-width: 768px) {
+  /* Navbar & Actions */
   .navbar-inner {
-    padding-left: 14px;
-    height: 64px;
+    padding: 0 14px;
+    height: 62px;
+  }
+
+  .navbar-actions {
+    height: 62px;
+    gap: 8px;
+    flex-shrink: 0;
   }
 
   .reservation-cta-btn {
-    height: 64px;
-    padding: 0 16px 0 20px;
+    display: none !important;
+  }
+
+  .navbar-wsp-btn {
+    padding: 7px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .quick-lang-toggle-btn {
+    padding: 5px 9px;
     font-size: 0.74rem;
-    clip-path: polygon(12px 0%, 100% 0%, 100% 100%, 0% 100%);
   }
 
-  .reservation-cta-btn span {
-    display: none;
+  .mobile-toggle-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
   }
 
+  /* Hero Section */
   .hero-section {
-    margin-top: 64px;
+    margin-top: 62px;
     height: 85vh;
+    min-height: 520px;
+  }
+
+  .hero-content-wrapper {
+    padding: 0 16px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .hero-main-title {
     font-size: 2.1rem;
+    letter-spacing: -0.3px;
+    word-break: break-word;
   }
 
   .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .hero-tagline {
-    font-size: 0.95rem;
-    letter-spacing: 1px;
+    font-size: 0.88rem;
+    letter-spacing: 0.8px;
+  }
+
+  .hero-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hero-arrow-left {
+    left: 8px;
+  }
+
+  .hero-arrow-right {
+    right: 8px;
   }
 
   .hero-weather-widget {
-    left: 20px;
-    bottom: 25px;
+    left: 16px;
+    bottom: 20px;
+    transform: scale(0.85);
+    transform-origin: bottom left;
+  }
+
+  /* Direct Booking Motor */
+  .direct-booking-wrapper {
+    margin-top: -24px;
+    padding: 0 14px;
   }
 
   .direct-booking-container {
     padding: 20px 16px;
+    border-radius: 10px;
   }
 
   .engine-fields-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
   }
 
   .engine-action-bar {
     flex-direction: column;
     align-items: stretch;
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .calc-price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .calc-amount-direct {
+    font-size: 1.55rem;
+  }
+
+  .calc-saved-text {
+    font-size: 0.78rem;
   }
 
   .whatsapp-direct-btn {
+    width: 100%;
     justify-content: center;
+    padding: 13px 18px;
+    font-size: 0.92rem;
   }
 
-  .proximity-cards-grid {
+  .direct-perks-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding-top: 14px;
+  }
+
+  /* About Section */
+  .about-section {
+    padding: 60px 16px;
+    overflow: hidden;
+  }
+
+  .about-container {
     grid-template-columns: 1fr;
-  }
-
-  .minimalist-amenities-bar {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .amenity-mini-item {
-    width: 45%;
+    gap: 32px;
   }
 
   .about-diamond-wrapper {
-    width: 290px;
-    height: 290px;
+    width: 240px;
+    height: 240px;
+    margin: 25px auto;
   }
 
   .diamond-border-outer {
-    width: 280px;
-    height: 280px;
+    width: 210px;
+    height: 210px;
   }
 
   .diamond-border-inner {
-    width: 260px;
-    height: 260px;
+    width: 195px;
+    height: 195px;
   }
 
   .diamond-mask {
-    width: 235px;
-    height: 235px;
+    width: 175px;
+    height: 175px;
   }
 
+  /* Room Showcase Section */
   .room-section {
     padding: 60px 14px 70px;
     clip-path: none;
+    overflow: hidden;
+  }
+
+  .room-card-center-wrapper {
+    width: 100%;
+    max-width: 100%;
   }
 
   .room-card-active {
-    height: 340px;
+    height: 380px;
+    border-radius: 8px;
+  }
+
+  .gallery-perspective-tabs {
+    top: 10px;
+    left: 10px;
+    padding: 3px;
+    gap: 4px;
+  }
+
+  .perspective-tab {
+    padding: 4px 8px;
+    font-size: 0.68rem;
+    gap: 3px;
+  }
+
+  .room-direct-rate-badge {
+    top: 10px;
+    right: 10px;
+    padding: 4px 10px;
+  }
+
+  .badge-direct-val {
+    font-size: 0.92rem;
+  }
+
+  .badge-official-tag {
+    font-size: 0.65rem;
+  }
+
+  .room-nav-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .room-nav-left {
+    left: 8px;
+  }
+
+  .room-nav-right {
+    right: 8px;
   }
 
   .room-info-overlay {
-    padding: 16px;
+    padding: 14px 12px;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
   }
 
   .room-name {
-    font-size: 1.25rem;
+    font-size: 1.22rem;
+  }
+
+  .room-specs-row {
+    font-size: 0.74rem;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .room-actions-right {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .room-btn-view-gallery,
+  .room-btn-wsp {
+    flex: 1;
+    padding: 9px 12px;
+    font-size: 0.78rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .minimalist-amenities-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .amenity-mini-item {
+    width: 100%;
+    font-size: 0.76rem;
+  }
+
+  /* Strategic Location Section */
+  .strategic-location-section {
+    padding: 60px 16px;
+    overflow: hidden;
+  }
+
+  .location-title {
+    font-size: 1.85rem;
+  }
+
+  .proximity-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .map-iframe-wrapper {
+    min-height: 250px;
+    height: 250px;
+  }
+
+  .map-card-info-pane {
+    padding: 20px 16px;
+  }
+
+  .hotel-title-tag {
+    font-size: 1.15rem;
+  }
+
+  /* Split Promo Banners */
+  .promo-banner-card {
+    height: 230px;
+  }
+
+  .member-title-large,
+  .packages-title {
+    font-size: 1.7rem;
+  }
+
+  /* Activities Section */
+  .activities-section {
+    padding: 60px 16px;
+    overflow: hidden;
+  }
+
+  .activities-title {
+    font-size: 1.85rem;
+  }
+
+  /* Footer Section */
+  .site-footer {
+    padding: 50px 16px 40px;
+    overflow: hidden;
   }
 
   .footer-inner-container {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 28px;
+    gap: 24px;
+  }
+
+  .footer-col-left {
+    align-items: center;
   }
 
   .footer-social-icons {
@@ -2621,10 +2879,459 @@
   }
 
   .footer-diamond-accent {
-    display: none;
+    display: none !important;
+  }
+
+  /* Floating WhatsApp Button */
+  .floating-wsp-button {
+    bottom: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    z-index: 990;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  }
+
+  .floating-wsp-button svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .floating-wsp-tooltip {
+    display: none !important;
+  }
+
+  /* Modals */
+  .modal-backdrop {
+    padding: 12px;
+  }
+
+  .modal-card {
+    padding: 22px 16px;
+    max-height: 92vh;
+    border-radius: 8px;
   }
 
   .form-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .guest-counters-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .room-detail-modal-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .modal-gallery-main-img {
+    height: 220px;
+  }
+
+  .modal-photo-tabs {
+    flex-wrap: wrap;
+  }
+
+  .modal-photo-tab {
+    padding: 6px 8px;
+    font-size: 0.74rem;
+  }
+
+  .modal-amenities-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+}
+
+/* ---------------------------------------------------------
+   13. EXTRA MOBILE RESPONSIVENESS (SMARTPHONES <= 480PX)
+   --------------------------------------------------------- */
+@media (max-width: 480px) {
+  /* Compact Navbar */
+  .navbar-inner {
+    padding: 0 8px 0 10px;
+    height: 56px;
+  }
+
+  .navbar-logo-area .logo-container {
+    transform: scale(0.78) !important;
+    transform-origin: left center !important;
+  }
+
+  .logo-retreat-tag {
+    display: none !important;
+  }
+
+  .navbar-actions {
+    height: 56px;
+    gap: 5px;
+  }
+
+  .quick-lang-toggle-btn {
+    padding: 3px 6px;
+    font-size: 0.7rem;
+    gap: 2px;
+  }
+
+  .navbar-wsp-btn {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 50%;
+  }
+
+  .mobile-toggle-btn {
+    padding: 4px;
+  }
+
+  /* Mobile Drawer */
+  .mobile-drawer {
+    padding: 18px 14px;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    margin-top: 56px;
+    height: 82vh;
+    min-height: 460px;
+  }
+
+  .hero-main-title {
+    font-size: 1.65rem;
+    line-height: 1.15;
+  }
+
+  .hero-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.78rem;
+    letter-spacing: 0.3px;
+    margin-bottom: 20px;
+  }
+
+  .hero-arrow {
+    display: none !important;
+  }
+
+  .hero-weather-widget {
+    display: none !important;
+  }
+
+  .hero-cta-group {
+    gap: 8px;
+    width: 100%;
+  }
+
+  .hero-book-btn,
+  .hero-explore-btn {
+    padding: 10px 14px;
+    font-size: 0.76rem;
+    flex: 1;
+    text-align: center;
+  }
+
+  /* Direct Booking Bar */
+  .direct-booking-wrapper {
+    margin-top: -18px;
+    padding: 0 10px;
+  }
+
+  .direct-booking-container {
+    padding: 16px 12px;
+    border-radius: 8px;
+  }
+
+  .direct-pitch-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .direct-engine-title {
+    font-size: 1.1rem;
+  }
+
+  .direct-engine-subtitle {
+    font-size: 0.74rem;
+  }
+
+  .direct-badge-box {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+
+  .saving-pill {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+
+  .engine-input,
+  .engine-select {
+    padding: 9px 10px;
+    font-size: 0.82rem;
+  }
+
+  .mini-guest-control {
+    padding: 5px 6px;
+    font-size: 0.78rem;
+  }
+
+  .btn-counter-group button {
+    width: 20px;
+    height: 20px;
+    font-size: 0.78rem;
+  }
+
+  .calc-label {
+    font-size: 0.78rem;
+  }
+
+  .calc-amount-direct {
+    font-size: 1.35rem;
+  }
+
+  .calc-saved-text {
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+
+  .whatsapp-direct-btn {
+    padding: 12px 14px;
+    font-size: 0.88rem;
+  }
+
+  .direct-perks-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  /* About Diamond Scaling */
+  .about-diamond-wrapper {
+    width: 190px;
+    height: 190px;
+    margin: 15px auto;
+  }
+
+  .diamond-border-outer {
+    width: 170px;
+    height: 170px;
+  }
+
+  .diamond-border-inner {
+    width: 155px;
+    height: 155px;
+  }
+
+  .diamond-mask {
+    width: 140px;
+    height: 140px;
+  }
+
+  .about-title-primary {
+    font-size: 1.65rem;
+  }
+
+  .about-title-secondary {
+    font-size: 1.1rem;
+  }
+
+  .about-description {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .about-highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* Rooms Mobile */
+  .room-section {
+    padding: 45px 10px 55px;
+  }
+
+  .room-card-active {
+    height: 350px;
+  }
+
+  .room-section-title {
+    font-size: 1.55rem;
+  }
+
+  .room-name {
+    font-size: 1.05rem;
+  }
+
+  .perspective-tab span {
+    font-size: 0.62rem;
+  }
+
+  .amenity-mini-item {
+    font-size: 0.72rem;
+  }
+
+  /* Strategic Location */
+  .location-title {
+    font-size: 1.55rem;
+  }
+
+  .proximity-card {
+    padding: 14px 12px;
+  }
+
+  .proximity-place-name {
+    font-size: 0.95rem;
+  }
+
+  .map-card-info-pane {
+    padding: 16px 12px;
+  }
+
+  .hotel-title-tag {
+    font-size: 1.05rem;
+  }
+
+  .address-full {
+    font-size: 0.8rem;
+  }
+
+  .btn-open-google-maps,
+  .btn-request-transfer {
+    padding: 9px 12px;
+    font-size: 0.78rem;
+  }
+
+  /* Promo Banners */
+  .member-title-large,
+  .packages-title {
+    font-size: 1.35rem;
+  }
+
+  .member-subtitle {
+    font-size: 0.82rem;
+  }
+
+  .member-wsp-link-btn {
+    font-size: 0.72rem;
+    padding: 8px 12px;
+    max-width: 95%;
+  }
+
+  /* Activities */
+  .activities-title {
+    font-size: 1.55rem;
+  }
+
+  .activity-img-wrapper {
+    height: 170px;
+  }
+
+  .activity-body {
+    padding: 14px 12px;
+  }
+
+  .activity-name {
+    font-size: 1.05rem;
+  }
+
+  .activity-desc {
+    font-size: 0.8rem;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 40px 12px 30px;
+  }
+
+  .footer-resort-title {
+    font-size: 0.92rem;
+  }
+
+  .footer-address,
+  .footer-contact-row,
+  .footer-email-row {
+    font-size: 0.78rem;
+  }
+
+  /* Floating WhatsApp */
+  .floating-wsp-button {
+    bottom: 12px;
+    right: 12px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .floating-wsp-button svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Modals */
+  .modal-backdrop {
+    padding: 8px;
+  }
+
+  .modal-card {
+    padding: 16px 12px;
+  }
+
+  .modal-title {
+    font-size: 1.15rem;
+  }
+
+  .modal-gallery-main-img {
+    height: 180px;
+  }
+}
+
+/* ---------------------------------------------------------
+   14. ULTRA-SMALL PHONES (<= 360PX, E.G. 320PX-360PX)
+   --------------------------------------------------------- */
+@media (max-width: 360px) {
+  .navbar-logo-area .logo-container {
+    transform: scale(0.70) !important;
+  }
+
+  .hero-main-title {
+    font-size: 1.4rem;
+  }
+
+  .calc-price-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .about-diamond-wrapper {
+    width: 165px;
+    height: 165px;
+  }
+
+  .diamond-border-outer {
+    width: 145px;
+    height: 145px;
+  }
+
+  .diamond-border-inner {
+    width: 132px;
+    height: 132px;
+  }
+
+  .diamond-mask {
+    width: 120px;
+    height: 120px;
+  }
+
+  .room-card-active {
+    height: 330px;
+  }
+
+  .room-actions-right {
+    flex-direction: column;
   }
 }
